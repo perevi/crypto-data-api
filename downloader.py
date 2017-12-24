@@ -12,7 +12,7 @@ class downloader:
         :param signature: str
         :return: str
         """
-        return f'./data/{head}.hdf'
+        return f'./data/{head}'
 
     def get_daily_data(self, symbol, market, save=False, filename=None):
         """
@@ -28,8 +28,8 @@ class downloader:
 
         if(save):
             if(filename==None):
-                filename = self.gen_file_name(f'{symbol}-{market}.daily.{source}')
-            df.to_hdf(filename, 'index')
+                filename = self.gen_file_name(f'{symbol}-{market}.daily.{source}.csv')
+            df.to_csv(filename, sep=',')
         return df
 
 
